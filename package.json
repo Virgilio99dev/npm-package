@@ -1,0 +1,22 @@
+{
+  "name": "npm-package-bir",
+  "version": "1.0.0",
+  "description": "Resources",
+  "main": "npm-resource.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Virgilio99dev/npm-package.git"
+  },
+  "keywords": [
+    "vlg"
+  ],
+  "author": "vilgo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Virgilio99dev/npm-package/issues"
+  },
+  "homepage": "https://github.com/Virgilio99dev/npm-package#readme"
+}
