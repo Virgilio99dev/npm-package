@@ -105,5 +105,9 @@ export function NavBarMenu(select, callback, ...rest) {
     if (callback && typeof callback === "function") {
       callback();
     }
+    // add hash change event
+    window.addEventListener("hashchange", () => {
+      hamMenu.classList.remove("active");
+    });
   });
 }
