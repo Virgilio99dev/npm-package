@@ -1,6 +1,6 @@
 {
   "name": "npm-package-bir",
-  "version": "1.1.2",
+  "version": "1.2.2",
   "description": "Resources",
   "main": "npm-resource.js",
   "scripts": {

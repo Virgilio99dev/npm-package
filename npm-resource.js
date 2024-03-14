@@ -111,3 +111,61 @@ export function NavBarMenu(select, callback, ...rest) {
     });
   });
 }
+
+export function SliderImage(select, SrcImages, interval) {
+SrcImages();
+var container = document.querySelector(select);
+var img = document.createElement('img');
+img.src = SrcImages()[0];
+container.appendChild(img);
+// change the image every 2 seconds
+var i = 0;
+setInterval(function(){
+    i++;
+    if(i == SrcImages().length){
+        i = 0;
+    }
+    img.src = SrcImages()[i];
+}, interval || 2000);
+// add dots to the slider
+var dots = document.createElement('div');
+dots.classList.add('dots');
+dots.style.position = 'absolute';
+dots.style.bottom = '10px';
+dots.style.left = '50%';
+dots.style.transform = 'translateX(-50%)';
+container.appendChild(dots);
+// create dots
+for(var e = 0; e < SrcImages().length; e++){ 
+    var dot = document.createElement('span');
+    dot.style.width = '10px';
+    dot.style.height = '10px';
+    dot.style.borderRadius = '50%';
+    dot.style.backgroundColor = 'black';
+    dot.style.display = 'inline-block';
+    dot.style.margin = '0 5px';
+    dot.style.cursor = 'pointer';
+    dot.setAttribute('data-index', e); // set index to the dot
+    dots.appendChild(dot);
+}
+// change the color of the dot when the image changes
+var dot = document.querySelectorAll('.dots span');
+dot[0].style.backgroundColor = 'white';
+setInterval(function(){
+    for(var e = 0; e < dot.length; e++) {
+        dot[e].style.backgroundColor = 'black';
+    }
+    dot[i].style.backgroundColor = 'white';
+}, interval || 2000);
+// change the image when the dot is clicked and Change the color of the dot
+dots.addEventListener('click', function(e) {
+    if(e.target.tagName == 'SPAN'){
+        i = e.target.getAttribute('data-index');
+        img.src = SrcImages()[i];
+        for(var e = 0; e < dot.length; e++) {
+            dot[e].style.backgroundColor = 'black';
+        }
+        dot[i].style.backgroundColor = 'white';
+    }
+});
+}
